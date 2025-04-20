@@ -46,12 +46,8 @@ from .block import (
     RepNCSPELAN4,
     ResNetLayer,
     Silence,
-    C2f_FasterBlock,#新加
-    #SCAM,#新加
-    SimSPPFCSPC,#新加
-    SCiAM,#新加
-    GSSPPFCSPC,#新加
-    SPPFCSPC,#新加
+   PGD-FEM,
+IDIM
 )
 from .conv import (
     CBAM,
@@ -142,10 +138,7 @@ __all__ = (
     "CBFuse",
     "CBLinear",
     "Silence",
-     "cs_attention",#新加
-    "SCiAM",#新加
-    "SimSPPFCSPC",#新加
-    "GSSPPFCSPC",#新加
-    "C2f_FasterBlock",#新加
-    "SPPFCSPC",#新加
+     "PGD-FEM",#新加
+    "IDIM"
+    
 )
