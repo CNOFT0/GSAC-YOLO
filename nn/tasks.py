@@ -50,12 +50,8 @@ from ultralytics.nn.modules import (
     Silence,
     C2f_FasterBlock,
     WorldDetect,
-    cs_attention,#新加
-    #SCAM,#新加
-    SimSPPFCSPC,#新加
-    SCiAM,#新加
-    GSSPPFCSPC,#新加
-    SPPFCSPC,#新加
+    PGD-FEM,
+    IDIM
 )
 from ultralytics.utils import DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS, LOGGER, colorstr, emojis, yaml_load
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
@@ -892,10 +888,7 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             DWConvTranspose2d,
             C3x,
             RepC3,
-            SimSPPFCSPC,#新加
-            GSSPPFCSPC,#新加
-            SPPFCSPC,#新加
-            C2f_FasterBlock,#新加
+    
         }:
             c1, c2 = ch[f], args[0]
             if c2 != nc:  # if c2 not equal to number of classes (i.e. for Classify() output)
@@ -912,17 +905,6 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
                 n = 1
         elif m is AIFI:
             args = [ch[f], *args]
-        ############新加
-        # elif m is SCAM:
-        #     c2 = ch[f]
-        #     args = [c2]
-        ############新加
-
-        ############新加
-        elif m is SCiAM:
-            c2 = ch[f]
-            args = [c2]
-        ############新加
 
         elif m in {HGStem, HGBlock}:
             c1, cm, c2 = ch[f], args[0], args[1]
